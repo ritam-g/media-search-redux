@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import {fetchPhoto,fetchPexelsVideo} from './api/mediaApi'
+import {fetchPhoto,fetchPexelsVideo,fetchGifs} from './api/mediaApi'
 function App() {
   useEffect(  ()=>{
     async function call() {
-      console.log( await fetchPhoto(),await fetchPexelsVideo());
+      console.log( await fetchPhoto(),await fetchPexelsVideo(),await fetchGifs());
     }
     call()
     
