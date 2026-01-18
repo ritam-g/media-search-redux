@@ -22,8 +22,6 @@ export async function fetchPhoto(
         },
       }
     );
-
-    
     return response.data.results;
   } catch (error) {
     console.error("Unsplash API error:", error);
@@ -75,3 +73,4 @@ export async function fetchGifs(query = "cat", limit = 20) {
 
   return res.data.data;
 }
+
