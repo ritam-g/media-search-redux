@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {fetchGifs,fetchPexelsVideo,fetchPhoto} from '../api/mediaApi'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -9,32 +9,34 @@ function ResultGrid() {
         results,
         loading,
         error} = useSelector((store)=>store.search)
-   //["video","photos","GIF"]
+   
+    useEffect(() => {
+        //!["video","photos","GIF"]
+    let data
     async function getData() {
         if(activeTab=='photos'){
-            let data=await fetchPhoto("love")
+             data=await fetchPhoto(query)
+            console.log("photo");
+            
             console.log(data);
         }
         else if(activeTab=='video'){
-            let data=await fetchPexelsVideo()
+            data=await fetchPexelsVideo(query)
+            console.log("video");
             console.log(data);
-            
-            
         }
         else{
-            let data=await fetchGifs()
+             data=await fetchGifs(query)
             console.log(data);
-            
-            
         }
     }
+      getData()
+    }, [query,activeTab])
+    
   return (
-    <button
-    onClick={()=>{
-        getData()
-    }}
-    className='p-2 bg-green-500 text-2xl'
-    >click</button>
+    <div>
+
+    </div>
   )
 }
 
