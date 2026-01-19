@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-     <main className='w-screen h-screen bg-black text-white'>
+     <main className=' flex flex-col gap-3 min-h-screen w-screen  bg-black text-white'>
       <SearchBar/>
       <Tabs/>
       <ResultGrid/>
