@@ -15,18 +15,21 @@ function ResultGrid() {
     let data
     async function getData() {
         if(activeTab=='photos'){
-             data=await fetchPhoto(query)
+             let res=await fetchPhoto(query)
+             data=res
             console.log("photo");
             
             console.log(data);
         }
         else if(activeTab=='video'){
-            data=await fetchPexelsVideo(query)
+            let res=await fetchPexelsVideo(query)
+            data=res
             console.log("video");
             console.log(data);
         }
         else{
-             data=await fetchGifs(query)
+             let res=await fetchGifs(query)
+             data=res
             console.log(data);
         }
     }
