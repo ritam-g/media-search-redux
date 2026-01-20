@@ -56,6 +56,8 @@ function ResultGrid() {
               type:ele.type,
               src:ele.embed_url
              }))
+             console.log(data);
+             
             
         }
         } catch (err) {
