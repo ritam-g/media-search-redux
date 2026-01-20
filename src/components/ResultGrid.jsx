@@ -57,7 +57,7 @@ function ResultGrid() {
               type:ele.type,
               src:ele.url
              }))
-              console.log();
+              console.log(data);
              
              
             
@@ -66,6 +66,8 @@ function ResultGrid() {
           dispatch(setError(err.message))
         }
         dispatch(setResults(data))
+        
+        
     }
       getData()
     }, [query,activeTab])

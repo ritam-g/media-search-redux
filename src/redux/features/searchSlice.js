@@ -21,6 +21,7 @@ export const searchSlice=createSlice({
         setResults(state,action){
             state.results=action.payload
             state.loading=false
+            
         },
         setLoading(state){
             state.loading=true
