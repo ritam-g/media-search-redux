@@ -49,14 +49,16 @@ function ResultGrid() {
         }
         else{
              let res=await fetchGifs(query)
+             
              data=res.map((ele)=>({
               id:ele.id,
               title:ele.title||"gif",
               thumbnail:`${query} awasome`,
               type:ele.type,
-              src:ele.embed_url
+              src:ele.url
              }))
-             console.log(data);
+              console.log();
+             
              
             
         }

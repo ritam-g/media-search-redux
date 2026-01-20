@@ -13,7 +13,7 @@ function ResultCard({item}) {
   className="w-full h-full object-cover"
 />
 :""}
-        {item.title=="gif"? <img className='h-full w-full object-cover ' src={item.src} alt=" " /> :""}
+        {item.type=="gif"? <img className='h-full w-full object-cover ' src={item.src} alt=" " /> :""}
       {/* <h1>{item.title}</h1> */}
     </div>
   )
