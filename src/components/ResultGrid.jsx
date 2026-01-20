@@ -23,6 +23,7 @@ function ResultGrid() {
         dispatch(setLoading())
           if(activeTab=='photos'){
              let res=await fetchPhoto(query)
+              //!data is gloabla of thiss funciton
              data=res.map((ele,id)=>({
               id:ele.id,
               src:ele.links.download,
@@ -37,6 +38,7 @@ function ResultGrid() {
         }
         else if(activeTab=='video'){
             let res=await fetchPexelsVideo(query)
+            //!data is gloabla of thiss funciton
             data=res.map((ele,id)=>({
               id:ele.id,
               url:ele.video_files[0].link,
@@ -48,19 +50,17 @@ function ResultGrid() {
             console.log(data);
         }
         else{
-             let res=await fetchGifs(query)
-             
-             data=res.map((ele)=>({
-              id:ele.id,
-              title:ele.title||"gif",
-              thumbnail:`${query} awasome`,
-              type:ele.type,
-              src:ele.url
-             }))
-              console.log(data);
-             
-             
-            
+             let res = await fetchGifs(query);
+ //!data is gloabla of thiss funciton
+     data = res.map((ele) => ({
+        id: ele.id,
+        title: ele.title || "gif",
+         thumbnail: `${query} awesome`,
+        type: ele.type,
+       src: ele.file?.hd?.gif?.url   // ✅ FIX HERE
+    }));
+
+console.log(data);
         }
         } catch (err) {
           dispatch(setError(err.message))

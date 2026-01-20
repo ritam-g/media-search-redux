@@ -2,7 +2,9 @@ import axios from "axios";
 
 const UNSPLASH_KEY = import.meta.env.VITE_UNSPLASH_KEY
 const PEXELS_KEY=import.meta.env.VITE_PEXELS_KEY
-const GIPHY_KEY = import.meta.env.VITE_GIPHY_KEY;
+// const GIPHY_KEY = import.meta.env.VITE_GIPHY_KEY;
+const KLIPY_KEY = import.meta.env.VITE_KLIPY_KEY;
+
 export async function fetchPhoto(
   query = "cat",
   page = 1,
@@ -59,18 +61,30 @@ export async function fetchPexelsVideo(
   }
 }
 
-export async function fetchGifs(query = "cat", limit = 20) {
-  const res = await axios.get(
-    "https://api.giphy.com/v1/gifs/search",
-    {
-      params: {
-        api_key: GIPHY_KEY,
-        q: query,
-        limit,
-      },
-    }
-  );
+export async function fetchGifs(query = "cat", page = 1, per_page = 20) {
+  try {
+    const res = await axios.get(
+      `https://api.klipy.com/api/v1/${KLIPY_KEY}/gifs/search`,
+      {
+        params: {
+          q: query,
+          page,
+          per_page,
+          locale: "en",
+          content_filter: "medium"
+        }
+      }
+    );
 
-  return res.data.data;
+    return res.data.data.data ?? [];
+
+  } catch (error) {
+    console.error(
+      "Klipy API error:",
+      error.response?.status,
+      error.response?.data
+    );
+    return [];
+  }
 }
 

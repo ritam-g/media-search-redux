@@ -8,7 +8,7 @@ function App() {
     async function call() {
       console.log( await fetchPhoto(),await fetchPexelsVideo(),await fetchGifs());
     }
-    // call()
+    call()
     
   },[])
 

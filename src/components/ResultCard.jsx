@@ -14,7 +14,7 @@ function ResultCard({item}) {
 />
 :""}
         {item.type=="gif"? <img className='h-full w-full object-cover ' src={item.src} alt=" " /> :""}
-      {/* <h1>{item.title}</h1> */}
+      <h1>{item.src}</h1>
     </div>
   )
 }
