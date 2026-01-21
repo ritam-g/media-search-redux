@@ -65,7 +65,7 @@ function ResultGrid() {
 
     }
     getData()
-  }, [query, activeTab])
+  }, [query, activeTab,dispatch])
   if (error) return <h1>error</h1>
   if (loading) return <h2>loading....</h2>
   return (
@@ -74,7 +74,6 @@ function ResultGrid() {
         return <ResultCard
         key={idx}
           item={item}
-          onSave={(data) => console.log("Saved:", data)}
         />
 
       })}

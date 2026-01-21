@@ -15,7 +15,9 @@ function SearchBar() {
     <div className='SearchBar'>
       <form 
       onSubmit={submitHandaler}
-      className='flex p-4 gap-3 bg-gray-600
+      className='flex p-4 gap-3 
+      bg-[var(--c2)]
+
       '
       >
         <input

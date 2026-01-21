@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import {fetchPhoto,fetchPexelsVideo,fetchGifs} from './api/mediaApi'
-import SearchBar from './components/SearchBar';
-import Tabs from './components/Tabs';
-import ResultGrid from './components/ResultGrid';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import CollectionPage from './pages/CollectionPage';
+
 function App() {
   useEffect(  ()=>{
     async function call() {
@@ -15,9 +16,11 @@ function App() {
   return (
     <>
      <main className=' flex flex-col gap-3 min-h-screen w-screen  bg-black text-white'>
-      <SearchBar/>
-      <Tabs/>
-      <ResultGrid/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/colleciton" element={<CollectionPage />} />
+      </Routes>
+      
       </main> 
     </>
   )
